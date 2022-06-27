@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
+        crossorigin="anonymous" />
+    <style>
+        *{
+            margin: 0;
+            padding: 0
+        }
+
+        .row{
+            margin-left: 0;
+            margin-right: 0
+        }
+
+        h6 {
+            display: inline-block;
+            max-width: 90%;
+        }
+
+        span.right {
+            margin-left: auto;
+            display: inline-block;
+            width: auto;
+        }
+
+        i.fa-trash-alt {
+            color: #eb0000;
+            margin-left: 20px;
+        }
+
+        i.fa-trash-alt:hover {
+            color: #b90000;
+            cursor: pointer
+        }
+
+        .card {
+            min-width: 90%;
+            max-width: 100%;
+            width: 95%;
+        }
+        .chk-s { margin-top: auto }
+        i:hover::before {
+            background: #ffafaf61;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: 0.5s all ease-in-out;
+        }
+
+        input.chk-s { margin-right: 20px }
+        input.chk-s:hover::before{
+            background: #78ff8361;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: 0.5s all ease-in-out;
+         }
+        .right.chk {
+            margin-left: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .chk {
+            height: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <form onclick="handleForm(event)">
+                    <div class="form-group">
+
+                        <label for="exampleFormControlTextarea1">Add Your task or note here</label>
+                        <textarea class="form-control" onchange="txt(event)" id='input' rows="3" required></textarea>
+                        <input class="btn btn-primary" type="submit" value='Add' />
+                    </div>
+                </form>
+            </div>
+
+            <h6>Tasks</h6>
+            <div class="row" id="card"></div>
+
+            <h6>Completed!</h6>
+            <div class="row" id="card"></div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script>
+        let handleForm = (event) => {
+            event.preventDefault();
+        }
+        var input = document.getElementById('input');
+        var submit = document.getElementById('submit');
+        var li = document.getElementById('li');
+        var card = document.getElementById('card');
+
+        var notes = [];
+        var titles = [];
+
+        var del = (event) => {
+            var x = event.target.id;
+            var element = document.getElementById(x);
+            element.innerHTML = '';
+            element.style.display = 'none';
+        }
+
+        var txt = (event) => {
+            if (event.target.value === ' ' || event.target.value === '') {
+
+            } else {
+                notes.push(event.target.value);
+                var el = notes.pop();
+                // ul.innerHTML += `<li id=${el}>${el}<span><i onclick='del(event)' id=${el} class="far fa-trash-alt"></i></span></li>`;
+                card.innerHTML += `
+                    <div class="card" id=${el}>
+                            <div class="card-body">
+                                <div class="row">
+                                        <div class="chk">
+                                            <input type='checkbox' class='chk-s' />
+                                        </div>
+                                        <h6>${el}</h6>
+                                        <div class="right chk"><i onclick='del(event)' id=${el} class="far fa-trash-alt chk-s"></i></div>        
+                                </div>
+                            </div>
+                    </div>
+                `;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
