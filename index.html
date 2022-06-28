@@ -81,6 +81,11 @@
             margin-top: auto;
             margin-bottom: auto;
         }
+        
+        .del {
+            color: #8b8b8b;
+            text-decoration: line-through;
+        }
     </style>
 </head>
 
@@ -111,6 +116,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
     <script>
+        
+
         let handleForm = (event) => {
             event.preventDefault();
         }
@@ -130,26 +137,38 @@
         }
 
         var txt = (event) => {
+
             if (event.target.value === ' ' || event.target.value === '') {
 
             } else {
+                
                 notes.push(event.target.value);
                 var el = notes.pop();
                 // ul.innerHTML += `<li id=${el}>${el}<span><i onclick='del(event)' id=${el} class="far fa-trash-alt"></i></span></li>`;
+                
                 card.innerHTML += `
                     <div class="card" id=${el}>
                             <div class="card-body">
                                 <div class="row">
                                         <div class="chk">
-                                            <input type='checkbox' class='chk-s' />
+                                            <input type='checkbox' id='_${el}' onchange='test(event)' class='chk-s' />
                                         </div>
-                                        <h6>${el}</h6>
+                                            <h6 id='__${el}'>${el}</h6>
                                         <div class="right chk"><i onclick='del(event)' id=${el} class="far fa-trash-alt chk-s"></i></div>        
                                 </div>
                             </div>
                     </div>
                 `;
+                
             }
+            test = (event) =>{
+                var __id = event.target.id;
+            if(event.target.checked == true){
+                document.getElementById(`_${__id}`).classList.add('del');
+            }else{
+                document.getElementById(`_${__id}`).classList.remove('del');
+            }
+        }
 
         }
 
