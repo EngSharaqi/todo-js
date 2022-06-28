@@ -95,7 +95,7 @@ textarea.form-control, .btn {
     .card { width: 100% }
     .main { margin-bottom: 20px; height: auto !important }
     h6 { max-width: 80% }
-    #_body{
-        overflow-y: auto;
-    }
+    #_body{ overflow-y: auto }
+
+    .form-group{ margin-bottom: 0 }
 }
