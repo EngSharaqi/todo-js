@@ -73,3 +73,17 @@ input.chk-s:hover::before{
     color: #8b8b8b;
     text-decoration: line-through;
 }
+
+form {
+    width: 100%;
+    margin: auto;
+    display: block !important;
+}
+
+textarea.form-control, .btn {
+    height: auto;
+    width: 100%;
+    margin: 0 0 10px;
+}
+
+.main{ overflow-y: scroll }

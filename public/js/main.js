@@ -6,6 +6,11 @@ var submit = document.getElementById('submit');
 var li = document.getElementById('li');
 var card = document.getElementById('card');
 
+var bodyStyle = document.getElementById('_body');
+bodyStyle.style.height = window.innerHeight + 'px';
+var mainStyle = document.getElementsByClassName('main')[0];
+mainStyle.style.height = window.innerHeight + 'px';
+
 var notes = [];
 var titles = [];
 
