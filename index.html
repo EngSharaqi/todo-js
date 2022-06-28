@@ -10,83 +10,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
         crossorigin="anonymous" />
-    <style>
-        *{
-            margin: 0;
-            padding: 0
-        }
-
-        .row{
-            margin-left: 0;
-            margin-right: 0
-        }
-
-        h6 {
-            display: inline-block;
-            max-width: 90%;
-        }
-
-        span.right {
-            margin-left: auto;
-            display: inline-block;
-            width: auto;
-        }
-
-        i.fa-trash-alt {
-            color: #eb0000;
-            margin-left: 20px;
-        }
-
-        i.fa-trash-alt:hover {
-            color: #b90000;
-            cursor: pointer
-        }
-
-        .card {
-            min-width: 90%;
-            max-width: 100%;
-            width: 95%;
-        }
-        .chk-s { margin-top: auto }
-        i:hover::before {
-            background: #ffafaf61;
-            content: '';
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            right: 0;
-            transition: 0.5s all ease-in-out;
-        }
-
-        input.chk-s { margin-right: 20px }
-        input.chk-s:hover::before{
-            background: #78ff8361;
-            content: '';
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            right: 0;
-            transition: 0.5s all ease-in-out;
-         }
-        .right.chk {
-            margin-left: auto;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-
-        .chk {
-            height: auto;
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-        
-        .del {
-            color: #8b8b8b;
-            text-decoration: line-through;
-        }
-    </style>
+    <link rel="stylesheet" href="public/style/main.css">
 </head>
 
 <body>
@@ -115,64 +39,7 @@
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
-    <script>
-        
-
-        let handleForm = (event) => {
-            event.preventDefault();
-        }
-        var input = document.getElementById('input');
-        var submit = document.getElementById('submit');
-        var li = document.getElementById('li');
-        var card = document.getElementById('card');
-
-        var notes = [];
-        var titles = [];
-
-        var del = (event) => {
-            var x = event.target.id;
-            var element = document.getElementById(x);
-            element.innerHTML = '';
-            element.style.display = 'none';
-        }
-
-        var txt = (event) => {
-
-            if (event.target.value === ' ' || event.target.value === '') {
-
-            } else {
-                
-                notes.push(event.target.value);
-                var el = notes.pop();
-                // ul.innerHTML += `<li id=${el}>${el}<span><i onclick='del(event)' id=${el} class="far fa-trash-alt"></i></span></li>`;
-                
-                card.innerHTML += `
-                    <div class="card" id=${el}>
-                            <div class="card-body">
-                                <div class="row">
-                                        <div class="chk">
-                                            <input type='checkbox' id='_${el}' onchange='test(event)' class='chk-s' />
-                                        </div>
-                                            <h6 id='__${el}'>${el}</h6>
-                                        <div class="right chk"><i onclick='del(event)' id=${el} class="far fa-trash-alt chk-s"></i></div>        
-                                </div>
-                            </div>
-                    </div>
-                `;
-                
-            }
-            test = (event) =>{
-                var __id = event.target.id;
-            if(event.target.checked == true){
-                document.getElementById(`_${__id}`).classList.add('del');
-            }else{
-                document.getElementById(`_${__id}`).classList.remove('del');
-            }
-        }
-
-        }
-
-    </script>
+    <script src='public/js/main.js'></script>
 </body>
 
 </html>
