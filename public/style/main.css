@@ -36,7 +36,7 @@ i.fa-trash-alt:hover {
     margin-bottom: 10px
 }
 .chk-s { margin-top: auto }
-i:hover::before {
+/* i:hover::before {
     background: #ffafaf61;
     content: '';
     width: 100%;
@@ -45,7 +45,7 @@ i:hover::before {
     top: 0;
     right: 0;
     transition: 0.5s all ease-in-out;
-}
+} */
 
 input.chk-s { margin-right: 20px }
 input.chk-s:hover::before{
@@ -98,6 +98,7 @@ textarea.form-control, .btn {
     #_body{ overflow-y: auto }
 
     .form-group{ margin-bottom: 0 }
+   
 }
 
 @media(max-width: 600px){
@@ -107,4 +108,5 @@ textarea.form-control, .btn {
     #_body{ overflow-y: auto }
 
     .form-group{ margin-bottom: 0 }
+
 }
