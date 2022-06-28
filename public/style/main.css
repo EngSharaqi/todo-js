@@ -99,3 +99,12 @@ textarea.form-control, .btn {
 
     .form-group{ margin-bottom: 0 }
 }
+
+@media(max-width: 600px){
+    .card { width: 100% }
+    .main { margin-bottom: 20px; height: auto !important }
+    h6 { max-width: 70% }
+    #_body{ overflow-y: auto }
+
+    .form-group{ margin-bottom: 0 }
+}
